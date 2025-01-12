@@ -1,0 +1,15 @@
+public static void main(String[] args)
+{
+    String input = "Hello";;
+    for (int i = 0; i < input.length() - 1; i++)
+    {
+        for (int j = i + 1; ; )
+        {
+            if (input.charAt(i) == input.charAt(j))
+            {
+                System.out.print(input.charAt(i) + " ");
+            }
+            break;
+        }
+    }
+}
