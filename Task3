@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+class BaseConverter
+{
+    public double convert(double celsius, String targetUnit)
+    {
+        switch (targetUnit.toLowerCase())
+        {
+            case "kelvin":
+            case "k":
+                return celsius + 273.15;
+            case "fahrenheit":
+            case "f":
+                return celsius * 9 / 5 + 32;
+            default:
+                System.out.println("Неподдерживаемая единица измерения. Возвращаем значение в Цельсиях.");
+                return celsius;
+        }
+    }
+}
+
+public class Main
+{
+    public void main()
+    {
+        Scanner scanner = new Scanner(System.in);
+        BaseConverter converter = new BaseConverter();
+
+        System.out.print("Введите градусы Цельсия (число): ");
+        double celsius = scanner.nextDouble();
+
+        System.out.print("Введите целевую единицу измерения темпертары для конвертации (Kelvin/K или Fahrenheit/F): ");
+        String targetUnit = scanner.next();
+
+        double convertedValue = converter.convert(celsius, targetUnit);
+        System.out.println("Результат: " + convertedValue + " " + targetUnit);
+
+        scanner.close();
+    }
+}
